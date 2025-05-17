@@ -6,6 +6,7 @@ This module provides a function that adds two integers together.
 The function handles type validation and conversion.
 """
 
+
 def add_integer(a, b=98):
     """
     Adds two integers and returns the result.
@@ -24,5 +25,5 @@ def add_integer(a, b=98):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
-    
+
     return int(a) + int(b)
