@@ -31,9 +31,9 @@ def matrix_divided(matrix, div):
 
     if not all(
             isinstance(element, (int, float))
-        for row in matrix for element in row):
-        raise TypeError(
-            "matrix must be a matrix (list of lists) of integers/floats")
+               for row in matrix for element in row):
+       raise TypeError(
+           "matrix must be a matrix (list of lists) of integers/floats")
 
     if len(matrix) > 0:
         row_size = len(matrix[0])
