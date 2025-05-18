@@ -77,8 +77,22 @@ Test with too many arguments:
     ...
     TypeError: print_square() takes 1 positional argument but 2 were given
 
-Test with boolean value:
+Test with boolean True (should work as 1):
     >>> print_square(True)
+    #
 
-Test with large integer:
-    >>> print_square(1000)  
+Test with boolean False (should work as 0):
+    >>> print_square(False)
+    
+
+Test with complex number:
+    >>> print_square(1+1j)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Test with list:
+    >>> print_square([1])
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
