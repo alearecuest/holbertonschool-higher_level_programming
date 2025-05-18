@@ -96,3 +96,15 @@ Test with list:
     Traceback (most recent call last):
     ...
     TypeError: size must be an integer
+
+    Test with no arguments:
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+Test with too many arguments:
+    >>> print_square(2, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() takes 1 positional argument but 2 were given
