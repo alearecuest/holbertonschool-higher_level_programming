@@ -16,7 +16,8 @@ def matrix_divided(matrix, div):
         div: A number (integer or float) to divide by.
 
     Returns:
-        A new matrix with all elements divided by div and rounded to 2 decimal places.
+        A new matrix with all elements divided by div and rounded
+        to 2 decimal places.
 
     Raises:
         TypeError: If matrix is not a list of lists of integers/floats,
@@ -27,12 +28,12 @@ def matrix_divided(matrix, div):
             isinstance(row, list) for row in matrix):
         raise TypeError(
             "matrix must be a matrix (list of lists) of integers/floats")
-        
+    
     if not all(
             isinstance(element, (int, float))
               for row in matrix for element in row):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    
+
     if len(matrix) > 0:
         row_size = len(matrix[0])
         if not all(len(row) == row_size for row in matrix):
