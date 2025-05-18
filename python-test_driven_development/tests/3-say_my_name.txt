@@ -76,3 +76,9 @@ Test with too many arguments:
     Traceback (most recent call last):
     ...
     TypeError: print_square() takes 1 positional argument but 2 were given
+
+Test with boolean value:
+    >>> print_square(True)
+
+Test with large integer:
+    >>> print_square(1000)  
