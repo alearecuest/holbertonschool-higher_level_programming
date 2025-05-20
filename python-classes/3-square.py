@@ -8,7 +8,8 @@ This module provides a Square class with size validation and area calculation.
 class Square:
     """
     A class that defines a square.
-    This class represents a square with size validation and can calculate its area.
+    This class represents a square with size validation and
+    can calculate its area.
     Attributes:
         __size (int): The size of the square (private attribute)
     """
@@ -27,7 +28,7 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
-    
+
     def area(self):
         """
         Calculate the area of the square.
