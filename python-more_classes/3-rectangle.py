@@ -97,13 +97,13 @@ class Rectangle:
             str: A string representation of the rectangle using # characters,
                  or an empty string if width or height is 0.
         """
-            if self.__width == 0 or self.__height == 0:
-                return ""
+        if self.__width == 0 or self.__height == 0:
+            return ""
 
-            rectangle_str = ""
-            for num in range(self.__height):
-                rectangle_str += "#" * self.__width
-                if num < self.__height - 1:
-                    rectangle_str += "\n"
+        rectangle_str = ""
+        for num in range(self.__height):
+            rectangle_str += "#" * self.__width
+            if num < self.__height - 1:
+                rectangle_str += "\n"
 
-            return rectangle_str
+        return rectangle_str
