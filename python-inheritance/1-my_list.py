@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Module that contains the MyList class.
-This module provides a class that inherits from list with additional functionality.
+This module provides a class that inherits from list
+with additional functionality.
 """
 
 
