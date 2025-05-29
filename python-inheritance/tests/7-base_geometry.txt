@@ -1,16 +1,16 @@
-The ``base_geometry_7_11`` module
+The ``7-base_geometry`` module
 ==============================
 
 Using ``BaseGeometry``
 ---------------------
 
 Import class:
-    >>> BaseGeometry = __import__('base_geometry_7_11').BaseGeometry
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Test instantiation:
     >>> bg = BaseGeometry()
     >>> type(bg)
-    <class 'base_geometry_7_11.BaseGeometry'>
+    <class '7-base_geometry.BaseGeometry'>
 
 Test area method:
     >>> bg.area()
