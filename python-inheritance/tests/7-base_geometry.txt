@@ -1,16 +1,16 @@
-The ``7-base_geometry`` module
+The ``base_geometry_7_11`` module
 ==============================
 
 Using ``BaseGeometry``
 ---------------------
 
 Import class:
-    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> BaseGeometry = __import__('base_geometry_7_11').BaseGeometry
 
 Test instantiation:
     >>> bg = BaseGeometry()
     >>> type(bg)
-    <class '7-base_geometry.BaseGeometry'>
+    <class 'base_geometry_7_11.BaseGeometry'>
 
 Test area method:
     >>> bg.area()
@@ -69,6 +69,12 @@ Test integer_validator with dict:
     Traceback (most recent call last):
     ...
     TypeError: dict must be an integer
+
+Test integer_validator with set:
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
 
 Test integer_validator missing arguments:
     >>> bg.integer_validator()
