@@ -51,7 +51,7 @@ class Circle(Shape):
         """
         Calculate the area of the circle.
         Returns:
-            float: The area of the circle (π * r^(2))
+            float: The area of the circle (π * (r^(2)))
         """
         return math.pi * (self.radius) ** 2
 
