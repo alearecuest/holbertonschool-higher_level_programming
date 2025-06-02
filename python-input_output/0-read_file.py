@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 This module provides functionality for file I/O operations in Python.
 It contains a function to read text files and display their contents
