@@ -1,0 +1,46 @@
+---
+config:
+  layout: dagre
+---
+flowchart TD
+ subgraph PL["Presentation Layer"]
+        API["API Controllers"]
+        Services["Services"]
+        APIFacade["API Facade"]
+  end
+ subgraph Models["Domain Models"]
+        User["User Model"]
+        Place["Place Model"]
+        Review["Review Model"]
+        Amenity["Amenity Model"]
+  end
+ subgraph BLL["Business Logic Layer"]
+        BusinessFacade["Business Logic Facade"]
+        Models
+  end
+ subgraph DAL["Persistence Layer"]
+        PersistenceFacade["Persistence Facade"]
+        Repositories["Data Repositories"]
+        DBAccess["Database Access"]
+  end
+    API --> Services
+    Services --> APIFacade
+    APIFacade -- Facade Pattern --> BusinessFacade
+    BusinessFacade --> User & Place & Review & Amenity
+    BusinessFacade -- Facade Pattern --> PersistenceFacade
+    PersistenceFacade --> Repositories
+    Repositories --> DBAccess
+    n1["Text Block"]
+    n1@{ shape: text}
+     APIFacade:::facade
+     User:::model
+     Place:::model
+     Review:::model
+     Amenity:::model
+     BusinessFacade:::facade
+     PersistenceFacade:::facade
+    classDef layer fill:#f9f9f9,stroke:#333,stroke-width:2px
+    classDef facade fill:#ffffcc,stroke:#333,stroke-width:1px
+    classDef model fill:#e1f5fe,stroke:#333,stroke-width:1px
+
+
