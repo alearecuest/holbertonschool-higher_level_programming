@@ -22,7 +22,7 @@ def to_json_string(my_obj):
 
     Note:
         - Does not handle exceptions if the object can't be serialized
-        - Common serializable types include: 
+        - Common serializable types include:
             dict, list, str, int, float, bool, None
         - Non-serializable types (like sets) will raise TypeError
     """
