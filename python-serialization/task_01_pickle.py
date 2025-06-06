@@ -35,32 +35,30 @@ class CustomObject:
         print(f"Is Student: {self.is_student}")
 
 
-def serialize(self, filename):
-    """
-    Serialize the current instance and save it to a file.
-    Args:
-        filename: The name of the file to save the serialized object to
-    """
-    try:
-        with open(filename, 'wb') as file:
-            pickle.dump(self, file)
-    except Exception:
-        return None
+    def serialize(self, filename):
+        """
+        Serialize the current instance and save it to a file.
+        Args:
+            filename: The name of the file to save the serialized object to
+        """
+        try:
+            with open(filename, 'wb') as file:
+                pickle.dump(self, file)
+        except Exception:
+            return None
 
 
-@classmethod
-def deserialize(cls, filename):
-    """
-    Load and return an instance of CustomObject from a file.
-
-    Args:
-        filename: The name of the file containing the serialized object
-
-    Returns:
-        An instance of CustomObject if successful, None otherwise
-    """
-    try:
-        with open(filename, 'rb') as file:
-            return pickle.load(file)
-    except (FileNotFoundError, pickle.PickleError):
-        return None
+    @classmethod
+    def deserialize(cls, filename):
+        """
+        Load and return an instance of CustomObject from a file.
+        Args:
+            filename: The name of the file containing the serialized object
+        Returns:
+            An instance of CustomObject if successful, None otherwise
+        """
+        try:
+            with open(filename, 'rb') as file:
+                return pickle.load(file)
+        except (FileNotFoundError, pickle.PickleError):
+            return None
