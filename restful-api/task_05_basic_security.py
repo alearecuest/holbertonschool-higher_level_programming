@@ -40,6 +40,12 @@ def verify_password(username, password):
     Verify the provided username and password for Basic Authentication.
     Returns the username if authentication is successful.
     """
+    if not username or not password:
+        return None
+    user = users.get(username)
+    if user and check_password_hash(user["password"], password):
+        return username
+    return None
     user = users.get(username)
     if user and check_password_hash(user["password"], password):
         return username
@@ -130,7 +136,7 @@ def handle_invalid_token_error(err):
 
 
 @jwt.expired_token_loader
-def handle_expired_token_error(err):
+def handle_expired_token_error(jwt_header, jwt_payload):
     """
     Handles expired JWT token errors.
     Returns a 401 Unauthorized response.
@@ -139,7 +145,7 @@ def handle_expired_token_error(err):
 
 
 @jwt.revoked_token_loader
-def handle_revoked_token_error(err):
+def handle_revoked_token_error(jwt_header, jwt_payload):
     """
     Handles revoked JWT token errors.
     Returns a 401 Unauthorized response.
@@ -148,7 +154,7 @@ def handle_revoked_token_error(err):
 
 
 @jwt.needs_fresh_token_loader
-def handle_needs_fresh_token_error(err):
+def handle_needs_fresh_token_error(jwt_header, jwt_payload):
     """
     Handles errors requiring a fresh JWT token.
     Returns a 401 Unauthorized response.
