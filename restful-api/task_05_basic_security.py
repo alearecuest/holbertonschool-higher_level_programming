@@ -50,16 +50,13 @@ def verify_password(username, password):
 
 
 @auth.error_handler
-def auth_error(status):
+def custom_auth_error():
     """
     Handles unauthorized access attempts for Basic Authentication.
     Returns a 401 Unauthorized response.
     """
     # Usar un formato específico para la respuesta
-    response = jsonify({"error": "Unauthorized"})
-    response.status_code = 401
-    return response
-
+    return jsonify({"error": "Unauthorized"}), 401
 
 @app.route("/basic-protected")
 @auth.login_required
