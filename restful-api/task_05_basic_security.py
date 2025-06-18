@@ -40,7 +40,6 @@ def verify_password(username, password):
     Verify the provided username and password for Basic Authentication.
     Returns the username if authentication is successful.
     """
-    # Eliminar código duplicado y simplificar
     if not username or not password:
         return None
     user = users.get(username)
@@ -50,13 +49,13 @@ def verify_password(username, password):
 
 
 @auth.error_handler
-def custom_auth_error():
+def auth_error(status):
     """
     Handles unauthorized access attempts for Basic Authentication.
     Returns a 401 Unauthorized response.
     """
-    # Usar un formato específico para la respuesta
     return jsonify({"error": "Unauthorized"}), 401
+
 
 @app.route("/basic-protected")
 @auth.login_required
@@ -77,8 +76,6 @@ def login():
     """
     if not request.is_json:
         return jsonify({"error": "Missing JSON in request"}), 401
-    
-    # Usar valores predeterminados vacíos
     username = request.json.get("username", "")
     password = request.json.get("password", "")
     user = users.get(username)
@@ -178,5 +175,11 @@ def custom_403(error):
     return jsonify({"error": "Admin access required"}), 403
 
 
+@app.route("/")
+def index():
+    """Root route to confirm the API is working."""
+    return jsonify({"message": "API is running"}), 200
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
