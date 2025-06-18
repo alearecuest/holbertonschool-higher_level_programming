@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-"""
-This module implements API security and authentication techniques using Flask.
-"""
-
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -27,7 +23,6 @@ users = {
 # --- Basic Auth ---
 @auth.verify_password
 def verify_password(username, password):
-    """Verify username and password."""
     user = users.get(username)
     if user and check_password_hash(user["password"], password):
         return username
@@ -35,13 +30,11 @@ def verify_password(username, password):
 @app.route("/basic-protected")
 @auth.login_required
 def basic_protected():
-    """Protected endpoint using basic auth."""
     return "Basic Auth: Access Granted"
 
 # --- JWT Login ---
 @app.route("/login", methods=["POST"])
 def login():
-    """Generate JWT token for valid credentials."""
     data = request.get_json()
     username = data.get("username")
     password = data.get("password")
@@ -57,14 +50,12 @@ def login():
 @app.route("/jwt-protected")
 @jwt_required()
 def jwt_protected():
-    """JWT protected endpoint."""
     return "JWT Auth: Access Granted"
 
 # --- Admin Only Route ---
 @app.route("/admin-only")
 @jwt_required()
 def admin_only():
-    """Admin-only protected endpoint."""
     identity = get_jwt_identity()
     if identity["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
@@ -73,28 +64,15 @@ def admin_only():
 # --- JWT Error Handlers ---
 @jwt.unauthorized_loader
 def handle_unauthorized(err):
-    """Handle missing JWT token."""
-    return jsonify({"error": "Unauthorized"}), 401
+    return jsonify({"error": "Missing or invalid token"}), 401
 
 @jwt.invalid_token_loader
 def handle_invalid_token(err):
-    """Handle invalid JWT token."""
-    return jsonify({"error": "Unauthorized"}), 401
+    return jsonify({"error": "Invalid token"}), 401
 
 @jwt.expired_token_loader
 def handle_expired_token(jwt_header, jwt_payload):
-    """Handle expired JWT token."""
-    return jsonify({"error": "Unauthorized"}), 401
-
-@app.errorhandler(401)
-def custom_401(error):
-    """Custom handler for 401 Unauthorized errors."""
-    return jsonify({"error": "Unauthorized"}), 401
-
-@app.errorhandler(403)
-def custom_403(error):
-    """Custom handler for 403 Forbidden errors."""
-    return jsonify({"error": "Admin access required"}), 403
+    return jsonify({"error": "Token has expired"}), 401
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
