@@ -24,8 +24,8 @@ def main():
         charset="utf8"
     )
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE name" \
-    "LIKE BINARY 'N%' ORDER BY id ASC")
+    cursor.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     for row in cursor.fetchall():
         print(row)
     cursor.close()
