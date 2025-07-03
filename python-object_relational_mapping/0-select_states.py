@@ -15,7 +15,7 @@ def main():
     """
     mysql_user = sys.argv[1]
     mysql_pass = sys.argv[2]
-    mysql_db   = sys.argv[3]
+    mysql_db = sys.argv[3]
 
     connection = MySQLdb.connect(
         host="127.0.0.1",
