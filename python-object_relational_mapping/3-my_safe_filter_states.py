@@ -26,7 +26,7 @@ def main():
     )
 
     cur = conn.cursor()
-    
+
     query = "SELECT * FROM states WHERE name = %s ORDER BY id"
     cur.execute(query, (estado,))
 
