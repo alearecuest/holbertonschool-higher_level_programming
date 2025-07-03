@@ -24,14 +24,14 @@ def main():
         db=mysql_db,
         charset="utf8"
     )
-    
+
     cursor = connection.cursor()
     query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
     cursor.execute(query)
-    
+
     for row in cursor.fetchall():
         print(row)
-    
+
     cursor.close()
     connection.close()
 
