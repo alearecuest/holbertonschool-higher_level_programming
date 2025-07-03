@@ -26,7 +26,7 @@ def main():
     )
 
     cursor = connection.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC"
     query = query.format(state_name)
     cursor.execute(query)
 
