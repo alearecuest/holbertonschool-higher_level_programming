@@ -33,7 +33,7 @@ def main():
     WHERE states.name = %s
     ORDER BY cities.id ASC
     """
-    
+
     cursor.execute(query, (state_name,))
 
     cities = cursor.fetchall()
