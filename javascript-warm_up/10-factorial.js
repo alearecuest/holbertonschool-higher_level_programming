@@ -4,7 +4,6 @@ function factorial (n) {
   if (isNaN(n) || n <= 1) {
     return 1;
   }
-  // Recursive step: n * factorial of (n-1)
   return n * factorial(n - 1);
 }
 
