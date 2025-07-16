@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Ingrese el nombre del archivo .py: " archivo
+read -p "Ingrese el nombre del archivo .js: " archivo
 
 # Verifica si el archivo existe
 if [[ ! -f "$archivo" ]]; then
@@ -9,8 +9,8 @@ if [[ ! -f "$archivo" ]]; then
 fi
 
 # Verifica si tiene extensión .py
-if [[ "$archivo" != *.py ]]; then
-    echo "El archivo debe tener extensión .py"
+if [[ "$archivo" != *.js ]]; then
+    echo "El archivo debe tener extensión .js"
     exit 1
 fi
 

@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "jsdom": "^26.1.0"
+  },
+  "name": "javascript-dom_manipulation",
+  "description": "JavaScript DOM manipulation",
+  "version": "1.0.0",
+  "main": "0-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
