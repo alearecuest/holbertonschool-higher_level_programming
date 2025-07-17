@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+  </head>
+  <body>
+    <!-- shared header -->
+    {% include 'header.html' %}
+
+    <!-- page-specific content -->
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- shared footer -->
+    {% include 'footer.html' %}
+  </body>
+</html>
